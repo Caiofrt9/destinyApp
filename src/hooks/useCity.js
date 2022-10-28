@@ -7,8 +7,6 @@ export const useCity = ({ country_code }) => {
   useEffect(() => {
     axios.get('https://amazon-api.sellead.com/city').then(response => {
       setData(response.data)
-
-      console.log(data)
     })
   }, [country_code])
 
