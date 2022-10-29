@@ -6,7 +6,7 @@ import { useState } from 'react'
 const UserForm = () => {
   //Fetch
   const { data: countries } = useContry()
-  const { data: cities } = useCity({ country_code: 'BR' })
+  const { data: cities } = useCity()
 
   const [selectedCountry, setSelectedCountry] = useState('')
 
@@ -17,12 +17,15 @@ const UserForm = () => {
   }
 
   const filterCityByCountry = () => {
-    let filteredCities = cities.filter(
-      city => city.country_code === setSelectedCountry
-    )
-  }
+    let CityArray = []
 
-  console.log(filterCityByCountry)
+    cities.forEach(city => {
+      if (city.country_code === selectedCountry) {
+        CityArray.push(city)
+      }
+    })
+    return CityArray
+  }
 
   return (
     <div className="main">
@@ -39,7 +42,7 @@ const UserForm = () => {
           ))}
         </select>
         <select>
-          {cities.map(city => (
+          {filterCityByCountry().map(city => (
             <option>{city.name.split(',')[0]}</option>
           ))}
         </select>
