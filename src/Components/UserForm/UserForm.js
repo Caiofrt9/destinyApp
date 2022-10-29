@@ -3,19 +3,23 @@ import { useContry } from '../../hooks/useContry'
 import { useCity } from '../../hooks/useCity'
 import { useState } from 'react'
 
+//Select
+import Select from 'react-select'
+import makeAnimated from 'react-select/animated'
+
 const UserForm = () => {
-  //Fetch
   const { data: countries } = useContry()
   const { data: cities } = useCity()
+
+  console.log(countries)
 
   const [selectedCountry, setSelectedCountry] = useState('')
 
   const handleContryUpdate = event => {
     setSelectedCountry(event.target.value)
-
-    console.log(event.target.value)
   }
 
+  //Filtrando cidades do mesmo pais
   const filterCityByCountry = () => {
     let CityArray = []
 
@@ -27,6 +31,36 @@ const UserForm = () => {
     return CityArray
   }
 
+  handleSubmit = () => {
+    event.preventDefault()
+  }
+
+  const countryOptions = countries.map(country => ({
+    value: country.code,
+    label: country.name
+  }))
+
+  const cityOptions = cities.map(city => ({
+    value: city.country_code,
+    label: city.name
+  }))
+
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted pink',
+      color: state.isSelected ? '#000' : '#000',
+      padding: 20
+    }),
+
+    singleValue: (provided, state) => {
+      const opacity = state.isDisabled ? 0.5 : 1
+      const transition = 'opacity 300ms'
+
+      return { ...provided, opacity, transition }
+    }
+  }
+
   return (
     <div className="main">
       <h2>DestinyApp</h2>
@@ -36,19 +70,25 @@ const UserForm = () => {
         <input type="number" placeholder="Digite seu numero." required />
         <input type="number" placeholder="Digite seu cpf." required />
         <p className="subtitle">Marque seus destino de interesse</p>
-        <select value={selectedCountry} onChange={handleContryUpdate}>
+        {/* <select value={selectedCountry} onChange={handleContryUpdate}>
           {countries.map(country => (
             <option value={country.code}>{country.name}</option>
           ))}
-        </select>
-        <select>
-          {filterCityByCountry().map(city => (
-            <option>{city.name.split(',')[0]}</option>
-          ))}
-        </select>
-        <input type="submit" value="Adicionar local." required />
+        </select> */}
+        <Select
+          styles={customStyles}
+          placeholder="Selecione um país"
+          options={countryOptions}
+          isMulti={true}
+        />
+        <Select
+          styles={customStyles}
+          placeholder="Selecione uma cidade"
+          options={cityOptions}
+          isMulti={true}
+        />
 
-        <input type="submit" value="Enviar" required />
+        <input type="submit" value="Enviar" onSubmit={handleSubmit} required />
       </form>
     </div>
   )

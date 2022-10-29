@@ -22,4 +22,13 @@ select {
   width: 20rem;
   height: 2rem;
   border-radius: 20px;
+  margin: 0.5em auto;
+}
+
+.destiny {
+  background-color: #343f7c;
+  display: flex;
+}
+.destiny ul {
+  align-itens: center;
 }
