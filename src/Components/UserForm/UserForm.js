@@ -19,22 +19,21 @@ const UserForm = () => {
     setSelectedCountry(event.target.value)
   }
 
-  //Filtrando cidades do mesmo pais
-  const filterCityByCountry = () => {
-    let CityArray = []
+  // //Filtrando cidades do mesmo pais
+  // const filterCityByCountry = () => {
+  //   let CityArray = []
 
-    cities.forEach(city => {
-      if (city.country_code === selectedCountry) {
-        CityArray.push(city)
-      }
-    })
-    return CityArray
+  //   cities.forEach(city => {
+  //     if (city.country_code === selectedCountry) {
+  //       CityArray.push(city)
+  //     }
+  //   })
+  //   return CityArray
+  // }
+
+  const handleSubmit = e => {
+    e.preventDefault()
   }
-
-  handleSubmit = () => {
-    event.preventDefault()
-  }
-
   const countryOptions = countries.map(country => ({
     value: country.code,
     label: country.name
@@ -64,23 +63,20 @@ const UserForm = () => {
   return (
     <div className="main">
       <h2>DestinyApp</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Digite seu nome." required />
         <input type="email" placeholder="Digite seu E-mail." required />
         <input type="number" placeholder="Digite seu numero." required />
         <input type="number" placeholder="Digite seu cpf." required />
         <p className="subtitle">Marque seus destino de interesse</p>
-        {/* <select value={selectedCountry} onChange={handleContryUpdate}>
-          {countries.map(country => (
-            <option value={country.code}>{country.name}</option>
-          ))}
-        </select> */}
+
         <Select
           styles={customStyles}
           placeholder="Selecione um país"
           options={countryOptions}
           isMulti={true}
         />
+        <br />
         <Select
           styles={customStyles}
           placeholder="Selecione uma cidade"
@@ -88,7 +84,7 @@ const UserForm = () => {
           isMulti={true}
         />
 
-        <input type="submit" value="Enviar" onSubmit={handleSubmit} required />
+        <input type="submit" value="Enviar" required />
       </form>
     </div>
   )
