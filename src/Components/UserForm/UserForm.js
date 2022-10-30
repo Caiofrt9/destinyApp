@@ -1,17 +1,27 @@
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+
 import './UserForm.css'
 import { useContry } from '../../hooks/useContry'
 import { useCity } from '../../hooks/useCity'
-import { useState } from 'react'
 
 //Select
 import Select from 'react-select'
-import makeAnimated from 'react-select/animated'
 
 const UserForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm()
+
+  function onSubmit(userData) {
+    console.log(userData)
+  }
+
   const { data: countries } = useContry()
   const { data: cities } = useCity()
-
-  console.log(countries)
 
   const [selectedCountry, setSelectedCountry] = useState('')
 
@@ -31,16 +41,13 @@ const UserForm = () => {
   //   return CityArray
   // }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-  }
   const countryOptions = countries.map(country => ({
     value: country.code,
     label: country.name
   }))
 
   const cityOptions = cities.map(city => ({
-    value: city.country_code,
+    value: city.name,
     label: city.name
   }))
 
@@ -63,26 +70,50 @@ const UserForm = () => {
   return (
     <div className="main">
       <h2>DestinyApp</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Digite seu nome." required />
-        <input type="email" placeholder="Digite seu E-mail." required />
-        <input type="number" placeholder="Digite seu numero." required />
-        <input type="number" placeholder="Digite seu cpf." required />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>
+          Nome
+          <input {...register('name', { required: true })} />
+          {errors.name && <span>O nome é obrigatório</span>}
+        </label>
+        <label>
+          Email
+          <input {...register('email', { required: true })} />
+          {errors.email && <span>Insira um email válido</span>}
+        </label>
+        <label>
+          Número
+          <input {...register('number', { required: true })} />
+          {errors.number && <span>Insira um numero de telefone</span>}
+        </label>
+        <label>
+          Cpf
+          <input {...register('cpf', { required: true })} />
+          {errors.cpf && <span>Insira seu cpf</span>}
+        </label>
         <p className="subtitle">Marque seus destino de interesse</p>
 
-        <Select
-          styles={customStyles}
-          placeholder="Selecione um país"
-          options={countryOptions}
-          isMulti={true}
-        />
+        <label>
+          País
+          <Select
+            {...register('select')}
+            styles={customStyles}
+            placeholder="Selecione um país"
+            options={countryOptions}
+            isMulti={true}
+            value={countryOptions.value}
+          />
+        </label>
         <br />
-        <Select
-          styles={customStyles}
-          placeholder="Selecione uma cidade"
-          options={cityOptions}
-          isMulti={true}
-        />
+        <label>
+          Cidade
+          <Select
+            styles={customStyles}
+            placeholder="Selecione um país"
+            options={countryOptions}
+            isMulti={true}
+          />
+        </label>
 
         <input type="submit" value="Enviar" required />
       </form>
