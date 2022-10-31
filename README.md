@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# REACTGRAM PROJECT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div id="technologies">
+  <p align="right" ><a href="https://github.com/markleysales/markbunnyOnlStore/blob/main/package.json">
+    <sup><strong>Complete and responsive online store | Version: 1.0.0</a></sup></strong></p>
+  <div align="right">
+    <sup><img width="36px" src="https://user-images.githubusercontent.com/95272518/157799236-8a87a088-b828-4b23-8462-91fc5809fc5f.svg">
+    <img width="36px" src="https://user-images.githubusercontent.com/95272518/157799244-3e8e4e9f-6f81-4a58-8bfb-412dcb83f445.svg">
+    <img width="36px" src="https://user-images.githubusercontent.com/95272518/157799254-d0d9c3d1-06a6-4df5-82c9-df413e4cf134.svg">
 
-## Available Scripts
+  </div>
 
-In the project directory, you can run:
+  ![Animação](https://user-images.githubusercontent.com/85707604/179428299-5743f375-e430-4944-8497-bcd42e72fb86.gif)
 
-### `npm start`
+  <div>
+  <h2>What's ReactGram?</h2>
+  <h3>Application made to simulate basic instagram features, in this project it is possible to register a new user and login, edit profile by changing photo, bio and user name, in addition to being able to post photos, like and comment on the photo of other users.</h3>
+  </div>
+    
+    
+  <br><br><br> 
+  
+    
+<div id="app-installs">
+  <h3>Machine installation required</h3>
+  <hr><br>
+  <table>
+    <th>
+      <a href="https://nodejs.org/en/">
+        <img width="44%" src="https://user-images.githubusercontent.com/95272518/157804111-12b16362-6db7-4fab-a4ac-17b5a32d6a4e.svg">
+      </a>
+      <a href="https://www.mongodb.com/try/download/community">
+        <img width="44%" src="https://user-images.githubusercontent.com/95272518/157804174-756d704a-14b7-4e35-901f-f9cbffe271ec.svg">
+      </a>
+    </tr>
+  </table>
+  <h5>
+    Node.js: <a href="https://nodejs.org/en/">https://nodejs.org/en</a><br>
+    MongoDB: <a href="https://www.mongodb.com/try/download/community">https://www.mongodb.com/try/download/community</a>
+  </h5>
+</div>
+    
+                                                                       
+  <br><br><br>
+    
+                                                                       
+<div id="instructions">
+  <h3>Starting application (console/prompt commands)</h3>
+  <hr>
+<h5>FOLDER CREATION AND ACESS:</h5> 
+    
+```bash
+mkdir foldername
+```
+    
+```bash
+cd foldername
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<p><sup><sup>*check clone options in the "code" tab</sup></sup></p>
+    
+<h5>INSTALL DEPENDENCIES:</h5>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install
+```
 
-### `npm test`
+<h5>for ./frontend</h5>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h5>RUN DEVELOPMENT SERVER:</h5>
 
-### `npm run build`
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h5>for ./backend</h5>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h5>RUN DEVELOPMENT SERVER:</h5>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run server
+```
 
-### `npm run eject`
+<p><sup><sup>*remember to check, after the commands, if the MongoDB server is running (you can see it according to the MongoError console return: connect ECONNREFUSED 127.0.0.1:27017), if not, start it.</sup></sup></p>
+<h5>Open <a href="http://localhost:3000">localhost:3000</a> with your browser to see the result.</h5>
+  </div>
+    
+                                                                                                       
+  <br><br><br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br><br><br><br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# MADE WITH ❤️ BY CAIO FERNANDO
