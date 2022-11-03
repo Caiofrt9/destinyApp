@@ -48,7 +48,7 @@ const UserForm = () => {
 
   const cityOptions = cities.map(city => ({
     value: city.name,
-    label: city.name
+    label: city.name.split(',')[0]
   }))
 
   const customStyles = {
@@ -110,7 +110,7 @@ const UserForm = () => {
           <Select
             styles={customStyles}
             placeholder="Selecione um país"
-            options={countryOptions}
+            options={cityOptions}
             isMulti={true}
           />
         </label>
