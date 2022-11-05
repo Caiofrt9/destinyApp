@@ -1,5 +1,5 @@
 
-# DestinyApp
+## DestinyApp
 
 <div id="technologies">
   <div align="right">
